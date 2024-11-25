@@ -1,0 +1,67 @@
+<odoo>
+    <template id="diacare_fields" inherit_id="auth_signup.fields"
+              name="Add diacare custom fields">
+        <xpath expr="//div[hasclass('field-name')]" position="replace">
+            <script type="text/javascript">
+                function toggleFields(selectElement) {
+                const genderField = document.getElementById('gender_field');
+                const phoneField = document.getElementById('phone_field');
+                const uploadField = document.getElementById('upload_field');
+<!--                const aboutField = document.getElementById('about_field');-->
+                console.info('gggg',genderField);
+
+                // Show or hide fields based on the selected value
+                if (selectElement.value === 'teacher') {
+                phoneField.style.display = 'block';
+                uploadField.style.display = 'block';
+<!--                aboutField.style.display = 'block';-->
+                } else if (selectElement.value === 'stu') {
+                phoneField.style.display = 'none';
+                uploadField.style.display = 'none';
+<!--                aboutField.style.display = 'none';-->
+                }
+                }
+
+            </script>
+
+                        <div class="row mb-3">
+                <div class="col-12">
+                    <label for="nickname">Full Name</label>
+                    <input type="text" name="nickname" t-att-value="nickname" id="nickname"
+                           class="form-control form-control-sm"
+                           required="required" t-att-readonly="'readonly' if only_passwords else None"
+                           t-att-autofocus="'autofocus' if login and not only_passwords else None"/>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-3" id="gender_field" style="display:block;">
+                <div class="col-12">
+                    <label for="gender">Gender</label>
+                    <select  class="form-control p-1" name="gender">
+
+                        <option t-att-selected="not default_value" disabled="disabled" value="">Select gender ..
+                        </option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label class="control-label" for="birthday">Date</label>
+                    <div>
+                        <div class='input-group date'>
+                            <input type="date" name="birthday" id="birthday_date"
+                                   class="form-control datepicker"
+                                   placeholder="dd/mm/yyyy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </xpath>
+    </template>
+</odoo>

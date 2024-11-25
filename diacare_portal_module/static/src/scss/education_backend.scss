@@ -1,0 +1,19 @@
+/* Add custom styles for the form */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.card-body {
+    background-color: #f9f9f9;
+}
+
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 18px;
+}

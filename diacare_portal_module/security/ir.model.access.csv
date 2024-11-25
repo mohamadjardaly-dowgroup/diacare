@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_diabetes_patient,access.diabetes.patient,model_diabetes_patient,,1,1,1,1
+access_diabetes_patient_day,access.diabetes.patient.day,model_diabetes_patient_day,,1,1,1,1

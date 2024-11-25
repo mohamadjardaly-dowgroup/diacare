@@ -1,0 +1,93 @@
+<odoo>
+    <!-- Form View for Diabetes Patient -->
+    <record id="view_diabetes_patient_form" model="ir.ui.view">
+        <field name="name">diabetes.patient.form</field>
+        <field name="model">diabetes.patient</field>
+        <field name="arch" type="xml">
+            <form string="Diabetes Patient">
+                <sheet>
+                    <!-- Basic Patient Information -->
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="contact"/>
+                    </group>
+
+                    <!-- Physical Information -->
+                    <group string="Physical Details">
+                        <field name="height"/>
+                        <field name="weight"/>
+                    </group>
+
+                    <!-- Insulin Details -->
+                    <group string="Insulin Information">
+                        <field name="insulin_type" required="1"/>
+                    </group>
+
+                    <!-- Rate Information -->
+                    <group string="Insulin Rate Statistics">
+                        <field name="rate_7_days" readonly="1"/>
+                        <field name="rate_14_days" readonly="1"/>
+                        <field name="cumulative_rate" readonly="1"/>
+                    </group>
+
+                    <!-- Weekly Data Section -->
+                    <notebook>
+                        <page string="Weekly Data">
+                            <field name="daily_entries">
+                                <tree string="Daily Entries" editable="bottom">
+                                    <field name="day" required="1"/>
+                                    <field name="date" required="1"/>
+                                    <field name="dose_morning"/>
+                                    <field name="dose_afternoon"/>
+                                    <field name="dose_night"/>
+                                    <field name="pre_breakfast"/>
+                                    <field name="post_breakfast"/>
+                                    <field name="pre_lunch"/>
+                                    <field name="post_lunch"/>
+                                    <field name="pre_dinner"/>
+                                    <field name="post_dinner"/>
+                                    <field name="bedtime"/>
+                                    <field name="early_morning"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Diabetes Patient -->
+    <record id="view_diabetes_patient_tree" model="ir.ui.view">
+        <field name="name">diabetes.patient.tree</field>
+        <field name="model">diabetes.patient</field>
+        <field name="arch" type="xml">
+            <tree string="Diabetes Patients">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="contact"/>
+                <field name="height"/>
+                <field name="weight"/>
+                <field name="insulin_type"/>
+                <field name="rate_7_days"/>
+                <field name="rate_14_days"/>
+                <field name="cumulative_rate"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Diabetes Patient -->
+    <record id="action_diabetes_patient" model="ir.actions.act_window">
+        <field name="name">Diabetes Patients</field>
+        <field name="res_model">diabetes.patient</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_diabetes_management" name="Diabetes Management"/>
+    <menuitem id="menu_diabetes_patient" parent="menu_diabetes_management"
+              action="action_diabetes_patient" name="Patients"/>
+</odoo>

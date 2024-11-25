@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- This file is used for new website menu for online admission -->
+    <data>
+        <record id="online_menu" model="website.menu">
+            <field name="name">Online Patient Admission</field>
+            <field name="url">/diabetes/patient/form</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">80</field>
+        </record>
+    </data>
+</odoo>
