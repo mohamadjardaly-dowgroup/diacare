@@ -24,7 +24,7 @@ class DiabetesPatient(models.Model):
         ('intermediate', 'Intermediate-Acting'),
         ('long', 'Long-Acting'),
         ('mixed', 'Pre-Mixed'),
-    ], string='Type of Insulin', required=True)
+    ], string='Type of Insulin')
 
     # Calculated fields
     rate_7_days = fields.Float(string='Rate per 7 Days', compute='_compute_rates', store=True)
