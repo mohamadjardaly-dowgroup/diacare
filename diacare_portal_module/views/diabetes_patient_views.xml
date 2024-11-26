@@ -22,7 +22,7 @@
 
                     <!-- Insulin Details -->
                     <group string="Insulin Information">
-                        <field name="insulin_type" required="1"/>
+                        <field name="insulin_type" />
                     </group>
 
                     <!-- Rate Information -->
