@@ -16,7 +16,7 @@ class DiacareAuthSignupHome(AuthSignupHome):
 
     def get_auth_signup_qcontext(self):
         SIGN_UP_REQUEST_PARAMS_CUSTOM = [
-                                          'is_patient','birthday','nickname']
+                                          'is_patient','birthday','nickname','phone']
         qcontext = super(DiacareAuthSignupHome, self).get_auth_signup_qcontext()
         # qcontext['countries'] = request.env['res.country'].sudo().search([])
         # qcontext['countries'] = request.env['res.country'].sudo().search([])
@@ -25,7 +25,7 @@ class DiacareAuthSignupHome(AuthSignupHome):
         return qcontext
 
     def _prepare_signup_values(self, qcontext):
-        values = {key: qcontext.get(key) for key in ('login', 'name', 'password','is_patient','birthday','nickname')}
+        values = {key: qcontext.get(key) for key in ('login', 'name', 'password','is_patient','birthday','nickname','phone')}
         print("val ------------ >", values)
         if not values:
             raise UserError(_("The form was not properly filled in."))
@@ -55,6 +55,8 @@ class DiacareAuthSignupHome(AuthSignupHome):
         values["is_patient"] = True
         values['gender_1'] = values.get("gender")
         values["name"] = f"{values.get('nickname')}"
+        values["phone"] = f"{values.get('phone')}"
+
 
 
         return values
